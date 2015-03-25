@@ -143,7 +143,7 @@ if ($in{'auto'}) {
 			       'from-any' => 1,
 			       'to-any' => 1,
 			       'to-port-start' => 1024,
-			       'to-port-range' => '<>',
+			       'to-port-range' => '><',
 			       'to-port-end' => 65535,
 			       'keep' => 'state',
 			       'cmt' => 'Allow connections to unprivileged ports' },
@@ -156,7 +156,8 @@ if ($in{'auto'}) {
 			       'dir' => 'in' });
 		push(@rules, { 'action' => 'pass', 'active' => 1,
 			       'all' => 1,
-			       'dir' => 'out' });
+			       'dir' => 'out', 
+			       'keep' => 'state' });
 		}
 	else {
 		# Just add one rule for NAT
